@@ -1,0 +1,128 @@
+@mixin default-input {
+    border-radius: 30px;
+    height: 50px;
+    border: none;
+    background-color: rgb(109, 187, 255);
+    text-align: center;
+    overflow: hidden;
+    @content
+}
+
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgb(144, 203, 255);
+
+    * {
+        font-family: arima-bold;
+    }
+}
+
+form {
+    background-color: rgb(153, 207, 255);
+    border-radius: 70px;
+    width: 370px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.buttons {
+    display: flex;
+    max-height: 50px;
+    justify-content: space-between;
+    width: 300px;
+
+    >button {
+        @include default-input(){
+            padding: 15px;
+            flex-grow: 1;
+            &:first-child {
+                margin-right: 20px;
+            }
+        }
+    }
+}
+
+input {
+    @include default-input() {
+        width: 300px;
+    }
+}
+
+::-webkit-input-placeholder {
+    text-align: center;
+}
+
+:-moz-placeholder {
+    text-align: center;
+}
+
+.start-animation-input {
+    animation: submit-inputs-animation 0.2s linear normal;
+
+    -webkit-animation-fill-mode: forwards; 
+    -moz-animation-fill-mode: forwards;    
+    -o-animation-fill-mode: forwards;      
+    -ms-animation-fill-mode: forwards;     
+    animation-fill-mode: forwards;
+}
+
+.start-animation-form {
+    animation-name: submit-form-animation-part1, submit-form-animation-part2;
+    animation-duration: 200ms, 1500ms;
+    animation-delay: 0ms, 200ms; 
+    animation-timing-function: linear, linear;
+    animation-iteration-count: 1, infinite;
+
+    -webkit-animation-fill-mode: forwards; 
+    -moz-animation-fill-mode: forwards;    
+    -o-animation-fill-mode: forwards;      
+    -ms-animation-fill-mode: forwards;     
+    animation-fill-mode: forwards;
+}
+
+@keyframes submit-inputs-animation {
+    from {
+        width: 300px;
+        height: 50px;
+    }
+
+    to {
+        width: 0;
+        height: 0;
+        color: transparent;
+        background-color: transparent;
+    }
+}
+
+@keyframes submit-form-animation-part1 {
+    to {
+        width: 100px;
+        height: 100px;
+        background-color: rgba(109, 255, 177, 0.514);
+    }
+}
+
+@keyframes submit-form-animation-part2 {
+    from {
+        border-radius: 30px;
+        background-color: rgba(109, 255, 177, 0.514);
+    }
+
+    50% {
+        border-radius: 50%;
+        background-color: rgb(109, 255, 177);
+        rotate: 180deg;
+    }
+
+    to {
+        border-radius: 30px;
+        rotate: 360deg;
+        background-color: rgba(109, 255, 177, 0.514);
+    }
+}

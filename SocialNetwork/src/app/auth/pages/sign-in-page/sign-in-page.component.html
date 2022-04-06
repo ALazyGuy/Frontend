@@ -2,6 +2,9 @@
     <form (submit)="login($event)" [class]="formEnabled ? 'start-animation-form' : null">
         <input [class]="loggedIn ? 'start-animation-input' : null" type="email" name="email" placeholder="Email">
         <input [class]="loggedIn ? 'start-animation-input' : null" type="password" name="password" placeholder="Password">
-        <button [class]="loggedIn ? 'start-animation-input' : null" type="submit">Login</button>
+        <div class="buttons">
+            <button [class]="loggedIn ? 'start-animation-input' : null" type="submit">Register</button>
+            <button [class]="loggedIn ? 'start-animation-input' : null" type="button">I have an account</button>
+        </div>
     </form>
 </div>

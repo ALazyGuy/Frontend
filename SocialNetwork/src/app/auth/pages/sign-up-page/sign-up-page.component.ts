@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up-page',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignUpPageComponent implements OnInit {
 
-  constructor() { }
+  registered: boolean = false;
+  formEnabled: boolean = false;
+
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  register(event: Event) {
+    event.preventDefault();
+    this.switchAnimation();
+  }
+
+  private switchAnimation(){
+    this.registered = true;
+    setTimeout(() => this.formEnabled = true, 200);
   }
 
 }

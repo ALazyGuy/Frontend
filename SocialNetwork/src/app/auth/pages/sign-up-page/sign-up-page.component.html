@@ -1,1 +1,11 @@
-<p>sign-up-page works!</p>
+<div>
+    <form (submit)="register($event)" [class]="formEnabled ? 'start-animation-form' : null">
+        <input [class]="registered ? 'start-animation-input' : null" type="text" name="fullName" placeholder="Full Name">
+        <input [class]="registered ? 'start-animation-input' : null" type="email" name="email" placeholder="Email">
+        <input [class]="registered ? 'start-animation-input' : null" type="password" name="password" placeholder="Password">
+        <div class="buttons">
+            <button [class]="registered ? 'start-animation-input' : null" type="submit">Register</button>
+            <button [class]="registered ? 'start-animation-input' : null" type="button">I have an account</button>
+        </div>
+    </form>
+</div>
