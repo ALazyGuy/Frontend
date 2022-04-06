@@ -21,6 +21,10 @@ export class SignUpPageComponent implements OnInit {
     this.switchAnimation();
   }
 
+  toSignIn(){
+    this.router.navigateByUrl('/auth/sign-in');
+  }
+
   private switchAnimation(){
     this.registered = true;
     setTimeout(() => this.formEnabled = true, 200);

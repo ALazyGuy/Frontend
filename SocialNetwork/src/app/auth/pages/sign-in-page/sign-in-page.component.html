@@ -4,7 +4,13 @@
         <input [class]="loggedIn ? 'start-animation-input' : null" type="password" name="password" placeholder="Password">
         <div class="buttons">
             <button [class]="loggedIn ? 'start-animation-input' : null" type="submit">Register</button>
-            <button [class]="loggedIn ? 'start-animation-input' : null" type="button">I have an account</button>
+            <button 
+                [class]="loggedIn ? 'start-animation-input' : null" 
+                type="button"
+                (click)="toSignUp()"
+            >
+                I don't have an account
+            </button>
         </div>
     </form>
 </div>
